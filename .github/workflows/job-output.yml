@@ -19,7 +19,7 @@ jobs:
 
   job2:
     runs-on: ubuntu-latest
-
+    needs: job1
     steps:
       - name: access output
-        run: echo "Value of name is ${{steps.set-output.outputs.name}}"
+        run: echo "Value of output name from job1 is ${{needs.job1.outputs.job1_name}}"
