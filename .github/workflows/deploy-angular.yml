@@ -12,7 +12,8 @@ jobs:
         uses: dawidd6/action-download-artifact@v8
         with: 
           name: build-artifact
-          path: artifact
+          path: artifact 
+          workflow: build-angular.yml
           run_number: 15
           github_token: ${{ github.token }}
           repo: ${{ github.repository }}
