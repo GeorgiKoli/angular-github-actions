@@ -9,13 +9,13 @@ jobs:
     
     steps:
       - name: Download Artifact
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v8
         with: 
           name: build-artifact
           path: artifact
-          run-id: 12943559281
-          github-token: ${{ github.token }}
-          repository: ${{ github.repository }}
+          run_number: 15
+          github_token: ${{ github.token }}
+          repo: ${{ github.repository }}
 
       - name: Display structure of downloaded files
         run: ls -R artifact
