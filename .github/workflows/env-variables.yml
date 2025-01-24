@@ -20,3 +20,13 @@ jobs:
 
       - name: Access enviroment variable
         run: echo ${{ env.COUNT }}
+
+      - name: update environment variables
+        run: | 
+          echo "CHANNEL_NAME=TEST" >> $GITHUB_ENV
+          echo "COUNT=20000" >> $GITHUB_ENV
+
+      - name: Access updated env variables
+        run: | 
+          echo ${{ env.COUNT }}
+          echo ${{ env.CHANNEL_NAME }}
