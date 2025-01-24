@@ -4,25 +4,19 @@ on:
   push:
     branches: [ "main" ]
 
+env: 
+  CHANNEL_NAME: InterviewPro
+
 jobs:
   job1:
     runs-on: ubuntu-latest
-    env:
-      CHANNEL_NAME: InterviewPro
 
     steps:
       - name: Greetings
-        run: echo "Hello, ${{ env.CHANNEL_NAME }}!"
+        run: echo "Hello, $CHANNEL_NAME !"
 
-      - name: Get comments on ${{ env.CHANNEL_NAME }}
-        run: | 
-          #HTTPS /api/comments
-          echo "Awesome!!"
-          echo "Great content" 
-          echo "Thank you for sharing"
+      - name: Set env variables programatically
+        run: echo "COUNT=10000" >> $GITHUB_ENV 
 
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Greetings
-        run: echo "Hello, ${{ env.CHANNEL_NAME }} from job2"
+      - name: Access enviroment variable
+        run: echo ${{ env.COUNT }}
